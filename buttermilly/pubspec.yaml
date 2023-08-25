@@ -51,12 +51,19 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
-flutter:
+# flutter:
+#   fonts:
+#     - family: PhotoAddIcon
+#       fonts:
+#         - asset: PhotoAddIcon.ttf
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
-  uses-material-design: true
+  flutter:
+uses-material-design: true
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -74,11 +81,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+ #       - asset: fonts/Schyler-Italic.ttf
   # fonts:
-  #   - family: Schyler
+  #   - family: PhotoAddIcon.ttf
   #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  #       - asset: fonts/PhotoAddIcon.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
@@ -87,4 +94,4 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # see https://flutter.dev/custom-fonts/#from-packages 
