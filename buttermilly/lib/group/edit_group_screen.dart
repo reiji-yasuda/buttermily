@@ -18,10 +18,29 @@ class _EditGroupScreenState extends State<EditGroupScreen> {
           elevation: 0,
         ),
       ),
-      body: Column(
+      body: const Column(
+        mainAxisAlignment: MainAxisAlignment.center, // 垂直方向中央寄せ
         children: [
           SizedBox(height: 20), // Add some spacing
-          CircleAvatar(radius: 40),
+          Stack(
+            // Stack ウィジェットを使用してオーバーレイを作成
+            alignment: Alignment.center, // 中央寄せ
+            children: [
+              CircleAvatar(
+                radius: 40,
+                backgroundColor: Color.fromARGB(255, 232, 232, 232),
+              ),
+              Positioned(
+                right: 0, // 右寄せ
+                bottom: 0, // 下寄せ
+                child: Icon(
+                  Icons.collections,
+                  color: Colors.black,
+                  size: 25,
+                ),
+              ),
+            ],
+          ),
           SizedBox(height: 20), // Add some spacing
           Padding(
             padding: const EdgeInsets.all(16.0),
