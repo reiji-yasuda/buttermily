@@ -70,7 +70,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '216757909385',
     projectId: 'chat-sample-1b567',
     storageBucket: 'chat-sample-1b567.appspot.com',
-    iosClientId: '216757909385-lmigqg7mj8e6822iilmokvan9sqiqqec.apps.googleusercontent.com',
+    iosClientId:
+        '216757909385-lmigqg7mj8e6822iilmokvan9sqiqqec.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterDemoFirebase',
   );
 }
