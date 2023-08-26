@@ -9,31 +9,35 @@ import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 //表示する画面のリスト
 var _pages = <Widget>[];
 
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    body: PersistentTabView(
-      context,
-      screens: _pages,
-      items: [
-        PersistentBottomNavBarItem(
-          icon: const Icon(Icons.home),
-          activeColorPrimary: Colors.black,
-          inactiveColorPrimary: Colors.white,
-        ),
-        PersistentBottomNavBarItem(
-          icon: const Icon(Icons.comment),
-          activeColorPrimary: Colors.black,
-          inactiveColorPrimary: Colors.white,
-        ),
-        PersistentBottomNavBarItem(
-          icon: const Icon(Icons.account_circle),
-          activeColorPrimary: Colors.black,
-          inactiveColorPrimary: Colors.white,
-        ),
-      ],
-    ),
-  );
+class BottomNavBar extends StatelessWidget {
+  BottomNavBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: PersistentTabView(
+        context,
+        screens: _pages,
+        items: [
+          PersistentBottomNavBarItem(
+            icon: const Icon(Icons.home),
+            activeColorPrimary: Colors.black,
+            inactiveColorPrimary: Colors.white,
+          ),
+          PersistentBottomNavBarItem(
+            icon: const Icon(Icons.comment),
+            activeColorPrimary: Colors.black,
+            inactiveColorPrimary: Colors.white,
+          ),
+          PersistentBottomNavBarItem(
+            icon: const Icon(Icons.account_circle),
+            activeColorPrimary: Colors.black,
+            inactiveColorPrimary: Colors.white,
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 // final StateProvider<int> bottomNavBarSelectedIndexProvider =
