@@ -18,8 +18,12 @@ class _GroupManuState extends State<GroupManu> {
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           actions: const [
-            Icon(
-              Icons.notifications,
+            Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: Icon(
+                Icons.notifications,
+                size: 35,
+              ),
             ),
           ],
         ),
