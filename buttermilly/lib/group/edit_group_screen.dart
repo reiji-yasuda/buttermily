@@ -18,7 +18,7 @@ class _EditGroupScreenState extends State<EditGroupScreen> {
           elevation: 0,
         ),
       ),
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center, // 垂直方向中央寄せ
         children: [
           SizedBox(height: 20), // Add some spacing
