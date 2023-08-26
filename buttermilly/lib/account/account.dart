@@ -14,7 +14,9 @@ class Accountprofiel extends StatelessWidget {
             Icon(Icons.menu),
           ],
         ),
-        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
           Padding(padding: const EdgeInsets.only(top: 5.0)),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,6 +78,7 @@ class Accountprofiel extends StatelessWidget {
                     ),
                   ),
                 ],
+
               ),
             ],
           ),
