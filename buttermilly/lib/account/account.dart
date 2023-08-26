@@ -89,17 +89,37 @@ class _AccountprofielState extends State<Accountprofiel>{
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(
+            ElevatedButton(
+              onPressed: () {
+              Navigator.push(context, 
+              MaterialPageRoute(builder: (context) => ()));
+            },
+            child: Icon(
               Icons.home,
               color: Colors.black,
             ),
-            Icon(
+            ),
+            SizedBox(width: 60,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ()));
+              },
+            child: Icon(
               Icons.comment,
               color: Colors.black,
             ),
-            Icon(
+            ),
+            SizedBox(width: 60,),
+            ElevatedButton(
+              onPressed: (){
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ()));
+              }, 
+              child: Icon(
               Icons.account_balance,
               color: Colors.black,
+            ),
             ),
       ]),
     );
