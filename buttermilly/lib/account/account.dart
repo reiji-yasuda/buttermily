@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Accountprofiel extends StatelessWidget {
-  const Accountprofiel({Key? key}) : super(key: key);
+  Accountprofiel({Key? key}) : super(key: key);
 
-class _AccountprofielState extends State<Accountprofiel>{
-  TextEditingController _textController = TextEditingController();
-  bool _isEditing = false;
-
-
-  @override
-  void dispose() {
-    _textController.dispose();
-    super.dispose();
-  }
+  final myFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -21,108 +12,76 @@ class _AccountprofielState extends State<Accountprofiel>{
         automaticallyImplyLeading: false,
         elevation: 1,
         backgroundColor: Colors.orange[100],
-        actions: [
-          // Icon(Icons.bell),
+        actions: const [
+          Icon(Icons.menu),
         ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(padding: EdgeInsets.all(15.0)),
-          Text(
-            'haruto',
-            style: TextStyle(fontSize: 25.0),
-          ),
+          // Text(
+          //   'haruto',
+          //   style: TextStyle(fontSize: 25.0),
+          // ),
           Padding(padding: const EdgeInsets.only(top: 5.0)),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            // CircleAvatar(
-            //   radius: 30,
-            //   backgroundColor: Colors.white,
-            //   backgroundImage: AssetImage(),
-            //   ),
-            //Padding(padding: const EdgeInsets.only(left: 30),
+            mainAxisSize: MainAxisSize.min,
+            children:[
+              CircleAvatar(
+                radius: 30.0,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage(
+                ),
+              ),
+            // Padding(padding: const EdgeInsets.only(left: 30),
             // Column(
             //   children[
             //     Text('120',style: TextStyle(fontSize: 20.0),),
             //     Text('Followers',style: TextStyle(fontSize: 12.0)),
             //   ],
             // ),
-            //Padding(padding: const EdgeInsets.only(left: 30),
-            //Column(
+            // Padding(padding: const EdgeInsets.only(left: 30),
+            // Column(
             //  children[
             //     Text('120',style: TextStyle(fontSize: 20.0),),
             //     Text('Followers',style: TextStyle(fontSize: 12.0)),
             //   ],
-            // ),
+        ]
+        ),
+            ]
           ),
-          Text('自己紹介: ${_textController.text}',
-              style: TextStyle(fontSize: 18.0)),
-          if(!_isEditing)
-            ElevatedButton(
-              onPressed: () {
-                setState(){
-                  _isEditing = true;
-              };
-              },
-              child: Text('Edit'),
-            ),
-          if(_isEditing)
-            TextField(
-              controller: _textController,
-              decoration: InputDecoration(
-                labelText: '自己紹介を入力してください'
+          const Padding(
+            padding: EdgeInsets.all(10.0),
+          ),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => ()));
+                },
+                child: const Text(
+                  'Edit',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
-            ),
-            if(_isEditing)
-            ElevatedButton(
-              onPressed: (){
-                setState(){
-                  _isEditing = false;
-                };
-              },
-              child: Text('finish'),
-            )
+              const Padding(
+                padding: EdgeInsets.only(right: 20.0),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ()));
+                },
+                child: const Text(
+                  'Share',
+                  style: TextStyle(fontSize: 18.0),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
-      bottomNavigationBar: 
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-              Navigator.push(context, 
-              MaterialPageRoute(builder: (context) => ()));
-            },
-            child: Icon(
-              Icons.home,
-              color: Colors.black,
-            ),
-            ),
-            SizedBox(width: 60,),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ()));
-              },
-            child: Icon(
-              Icons.comment,
-              color: Colors.black,
-            ),
-            ),
-            SizedBox(width: 60,),
-            ElevatedButton(
-              onPressed: (){
-                Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ()));
-              }, 
-              child: Icon(
-              Icons.account_balance,
-              color: Colors.black,
-            ),
-            ),
-      ]),
     );
   }
-}
 }

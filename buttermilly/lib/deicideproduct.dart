@@ -7,9 +7,7 @@ class MyApp extends StatelessWidget {
     //子widgetにデータを渡す
     return MaterialApp(
       title: 'Buttermily',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [],
       home: Accountprofiel(),
