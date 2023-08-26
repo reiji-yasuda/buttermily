@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -47,30 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCCpHN-lej9ATuHKuOVbNQyww7Lze25PTY',
-    appId: '1:216757909385:web:28bed5644e3246f19c9358',
-    messagingSenderId: '216757909385',
-    projectId: 'chat-sample-1b567',
-    authDomain: 'chat-sample-1b567.firebaseapp.com',
-    storageBucket: 'chat-sample-1b567.appspot.com',
-    measurementId: 'G-2Z7RBMVXC6',
+    apiKey: 'AIzaSyBiRlIo17N71zMJqvMnGQBXbjxKJ6e1Gbs',
+    appId: '1:970633298102:web:de944fbf1992e508966617',
+    messagingSenderId: '970633298102',
+    projectId: 'buttermillyauth',
+    authDomain: 'buttermillyauth.firebaseapp.com',
+    storageBucket: 'buttermillyauth.appspot.com',
+    measurementId: 'G-J2L522770F',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCOaP1UiJbYgo_XZZKOc4z_1RjpZbyFH1Y',
-    appId: '1:216757909385:android:072347c062e8ca519c9358',
-    messagingSenderId: '216757909385',
-    projectId: 'chat-sample-1b567',
-    storageBucket: 'chat-sample-1b567.appspot.com',
+    apiKey: 'AIzaSyBZQJnf9nB9tOBdo1UYXg5QvlY2A0mBKv0',
+    appId: '1:970633298102:android:1f7b3bd687822379966617',
+    messagingSenderId: '970633298102',
+    projectId: 'buttermillyauth',
+    storageBucket: 'buttermillyauth.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBLSakLSOXsATTrlsEpiUbJd6QWy1Ya63Q',
-    appId: '1:216757909385:ios:6b8438906521d8a29c9358',
-    messagingSenderId: '216757909385',
-    projectId: 'chat-sample-1b567',
-    storageBucket: 'chat-sample-1b567.appspot.com',
-    iosClientId: '216757909385-lmigqg7mj8e6822iilmokvan9sqiqqec.apps.googleusercontent.com',
-    iosBundleId: 'com.example.flutterDemoFirebase',
+    apiKey: 'AIzaSyCvTIlJo85PZH8DNc6XtqW8KGrtSERk76M',
+    appId: '1:970633298102:ios:9add7b4c1f13a143966617',
+    messagingSenderId: '970633298102',
+    projectId: 'buttermillyauth',
+    storageBucket: 'buttermillyauth.appspot.com',
+    iosClientId: '970633298102-hljdsid93e80nvlht6033b6pelg81cl4.apps.googleusercontent.com',
+    iosBundleId: 'com.example.buttermilly',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCvTIlJo85PZH8DNc6XtqW8KGrtSERk76M',
+    appId: '1:970633298102:ios:9add7b4c1f13a143966617',
+    messagingSenderId: '970633298102',
+    projectId: 'buttermillyauth',
+    storageBucket: 'buttermillyauth.appspot.com',
+    iosClientId: '970633298102-hljdsid93e80nvlht6033b6pelg81cl4.apps.googleusercontent.com',
+    iosBundleId: 'com.example.buttermilly',
   );
 }
