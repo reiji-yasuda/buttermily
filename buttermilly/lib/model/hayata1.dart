@@ -1,4 +1,4 @@
-class Hayata {
+class Account {
   String id;
   String name;
   String imagePath;
@@ -7,7 +7,7 @@ class Hayata {
   DateTime? createdTime;
   DateTime? updatedTime;
 
-  Hayata(
+  Account(
       {this.id = '',
       this.name = '',
       this.imagePath = '',

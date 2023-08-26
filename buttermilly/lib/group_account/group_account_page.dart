@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled6/followers_page/followers_page.dart';
 
 class GroupAccountPage extends StatefulWidget {
   const GroupAccountPage({Key? key}) : super(key: key);
@@ -30,7 +32,7 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
               const SizedBox(
                 width: 30,
               ),
-              Column(
+              const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -38,7 +40,7 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                   ),
                   Row(
-                    children: const [
+                    children: [
                       SizedBox(
                         width: 5,
                       ),
@@ -85,20 +87,50 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 8.0),
-                child: Text(
-                  '124',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    height: 1,
-                  ),
-                ),
+              const SizedBox(
+                height: 8,
               ),
-              const Text(
-                'Followers',
-                style: TextStyle(fontSize: 15, height: 1),
+              RichText(
+                text: TextSpan(
+                    style: const TextStyle(color: Colors.black),
+                    children: [
+                      TextSpan(
+                        text: '124',
+                        style: const TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          height: 1,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const FollowersPage()));
+                          },
+                      ),
+                    ]),
+              ),
+              RichText(
+                text: TextSpan(
+                    style: const TextStyle(color: Colors.black),
+                    children: [
+                      TextSpan(
+                        text: 'Followers',
+                        style: const TextStyle(
+                          fontSize: 15,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const FollowersPage()));
+                          },
+                      ),
+                    ]),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25, right: 60),
@@ -127,10 +159,10 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 380,
                 child: Text(
                   'Archive',
@@ -143,7 +175,10 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
             child: Container(
-              color: Colors.grey,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey,
+              ),
               height: 550,
             ),
           )
