@@ -1,4 +1,5 @@
 import 'package:buttermilly/account/account.dart';
+import 'package:buttermilly/bottombar.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [],
-      home: Accountprofiel(),
+      home: BottomNavBar(),
     );
   }
 }

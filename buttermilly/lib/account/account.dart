@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 class Accountprofiel extends StatelessWidget {
   Accountprofiel({Key? key}) : super(key: key);
 
-  final myFocusNode = FocusNode();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +29,28 @@ class Accountprofiel extends StatelessWidget {
                 backgroundImage: AssetImage('image/Ellipse11.png'),
               ),
               SizedBox(
-                height: 20.0,
+                width: 20.0,
+              ),
+              Column(
+                children: [
+                  Text(
+                    '120',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  Text('Followers', style: TextStyle(fontSize: 12.0)),
+                ],
+              ),
+              SizedBox(
+                width: 20.0,
+              ),
+              Column(
+                children: [
+                  Text(
+                    '120',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  Text('Followers', style: TextStyle(fontSize: 12.0)),
+                ],
               ),
               Row(
                 children: [
