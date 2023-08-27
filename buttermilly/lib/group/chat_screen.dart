@@ -173,7 +173,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           Column(children: [
             Text(
-              '今日の１枚を\n 投稿しよう',
+              '今日の１枚を\n 投稿しよう!!',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             Padding(
