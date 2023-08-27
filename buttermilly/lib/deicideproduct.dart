@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [],
-      home: BottomNavBar(),
+      home: Accountprofiel(),
     );
   }
 }
