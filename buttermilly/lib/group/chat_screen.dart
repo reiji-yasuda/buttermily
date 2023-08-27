@@ -1,19 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final cameras = await availableCameras();
+
+  runApp(MaterialApp(
+    home: ChatScreen(cameras: cameras),
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class ChatScreen extends StatefulWidget {
+  final List<CameraDescription> cameras;
+
+  ChatScreen({required this.cameras});
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ChatScreen(),
-    );
-  }
+  _ChatScreenState createState() => _ChatScreenState();
 }
 
-class ChatScreen extends StatelessWidget {
+class _ChatScreenState extends State<ChatScreen> {
+  late CameraController _controller;
+  late Future<void> _initializeControllerFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize the camera controller
+    _controller = CameraController(
+      widget.cameras[0], // Use the first available camera
+      ResolutionPreset.medium,
+    );
+    _initializeControllerFuture = _controller.initialize();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose(); // Dispose of the camera controller
+    super.dispose();
+  }
+
+  bool isFavorite = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +54,7 @@ class ChatScreen extends StatelessWidget {
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10), // Add padding here
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: Icon(
               Icons.dehaze_sharp,
               color: Colors.black,
@@ -40,7 +67,7 @@ class ChatScreen extends StatelessWidget {
           Container(
             color: Colors.white,
             width: 500,
-            height: 600,
+            height: 520,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -87,7 +114,7 @@ class ChatScreen extends StatelessWidget {
                       children: [
                         SizedBox(
                           width: 20,
-                          height: 400,
+                          height: 390,
                         ),
                         Container(
                           width: 260,
@@ -98,15 +125,23 @@ class ChatScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Icon(
-                                      Icons.favorite,
-                                      size: 30,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 3,
-                                  ),
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: IconButton(
+                                        icon: Icon(Icons.favorite,
+                                            color: isFavorite
+                                                ? Colors.pink
+                                                : Colors.grey),
+                                        onPressed: () {
+                                          setState(() {
+                                            isFavorite =
+                                                !isFavorite; // 変数をトグルして色を切り替え
+                                          });
+                                        },
+                                        //タップ中の色
+                                      )),
+                                  // SizedBox(
+                                  //   height: 3,
+                                  // ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 10),
                                     child: Container(
@@ -123,7 +158,7 @@ class ChatScreen extends StatelessWidget {
                               Row(
                                 children: [
                                   Text('Next'),
-                                  Icon(Icons.account_circle)
+                                  Icon(Icons.account_circle),
                                 ],
                               ),
                             ],
@@ -136,55 +171,92 @@ class ChatScreen extends StatelessWidget {
               ],
             ),
           ),
+          Column(children: [
+            Text(
+              '今日の１枚を\n 投稿しよう!!',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(top: 20, right: 0, bottom: 0, left: 0),
+              child: SizedBox(
+                width: 140, //横幅
+                height: 45, //高さ
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "GO",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    onPrimary: Colors.black, //押したときの色！！
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 300,
+              height: 300,
+            )
+          ]),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () => {
-                // フローティングアクションボタンを押された時の処理.
-                print("フローティングアクションボタンをクリック")
-              },
-          child: Icon(Icons.add)),
+        onPressed: () async {
+          await _initializeControllerFuture;
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CameraScreen(controller: _controller),
+            ),
+          );
+        },
+        child: Icon(Icons.camera),
+      ),
     );
   }
 }
 
+class CameraScreen extends StatelessWidget {
+  final CameraController controller;
 
-// class SearchBar extends SearchDelegate<String> {
-//   @override
-//   List<Widget> buildActions(BuildContext context) {
-//     return [
-//       IconButton(
-//         icon: Icon(Icons.clear),
-//         onPressed: () {
-//           query = '';
-//         },
-//       ),
-//     ];
-//   }
+  CameraScreen({required this.controller});
 
-//   @override
-//   Widget buildLeading(BuildContext context) {
-//     return IconButton(
-//       icon: Icon(Icons.arrow_back),
-//       onPressed: () {
-//         close(context, '');
-//       },
-//     );
-//   }
-
-//   @override
-//   Widget buildResults(BuildContext context) {
-//     // Build and return search results based on the query.
-//     return Center(
-//       child: Text('Search Results for "$query"'),
-//     );
-//   }
-
-//   @override
-//   Widget buildSuggestions(BuildContext context) {
-//     // Build suggestions as the user types in the search bar.
-//     return Center(
-//       child: Text('Search Suggestions'),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('キャメラ！'),
+      ),
+      body: Stack(
+        children: [
+          FutureBuilder<void>(
+            future: controller.initialize(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return CameraPreview(controller);
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: IconButton(
+                icon: Icon(Icons.camera_alt),
+                onPressed: () async {},
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

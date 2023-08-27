@@ -9,8 +9,10 @@ import 'package:buttermilly/group_manu/group_manu.dart';
 import 'package:buttermilly/login.dart';
 import 'package:buttermilly/group/chat_screen.dart';
 import 'package:buttermilly/group/home_screen.dart';
+import 'package:camera/camera.dart';
+import 'package:buttermilly/group/chat_screen.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-
 // import 'bottombar.dart';
 
 class MyApp extends StatelessWidget {
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [],
 
+
       //home: Screen1(),
 
       home: LoginPage(),
@@ -33,7 +36,21 @@ class MyApp extends StatelessWidget {
       //home: GroupAccountPage(),
       //home: AccountEdit(),
       // home: FollowersPage(),
+
       // home: HomeScreen(),
+//       home: FutureBuilder(
+//         future: availableCameras(),
+//         builder: (_, snapshot) {
+//           final cameras = snapshot.data;
+//           if (cameras == null) {
+//             return Container();
+//           }
+//           return ChatScreen(
+//             cameras: cameras,
+//           );
+//         },
+//       ),
+      // home: LoginPage(),
     );
   }
 }
