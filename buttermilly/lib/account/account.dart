@@ -101,10 +101,14 @@ class Accountprofiel extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 20.0,
+          Padding(
+            padding: EdgeInsets.only(top: 30),
           ),
-          Text('所属中のグループ'),
+          SizedBox(
+            height: 30,
+            width: 150,
+            child: Text('所属中のグループ'),
+          ),
           Padding(
             padding: EdgeInsets.only(top: 10),
           ),

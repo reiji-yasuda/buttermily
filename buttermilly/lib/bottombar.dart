@@ -25,17 +25,17 @@ class BottomNavBar extends StatelessWidget {
           PersistentBottomNavBarItem(
             icon: const Icon(Icons.home),
             activeColorPrimary: Colors.black,
-            inactiveColorPrimary: Colors.white,
+            inactiveColorPrimary: Colors.grey,
           ),
           PersistentBottomNavBarItem(
             icon: const Icon(Icons.comment),
             activeColorPrimary: Colors.black,
-            inactiveColorPrimary: Colors.white,
+            inactiveColorPrimary: Colors.grey,
           ),
           PersistentBottomNavBarItem(
             icon: const Icon(Icons.account_circle),
-            activeColorPrimary: Colors.black,
-            inactiveColorPrimary: Colors.white,
+            activeColorPrimary: Colors.black26,
+            inactiveColorPrimary: Colors.grey,
           ),
         ],
         navBarStyle: NavBarStyle.simple,

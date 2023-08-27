@@ -20,9 +20,11 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: [],
 
       //home: Screen1(),
-      //home: LoginPage(),
-      home: Accountprofiel(),
+      home: LoginPage(),
+      // home: BottomNavBar(),
       //home: ChatScreen(),
+      // home: Accountprofiel(),
+      // home: AccountEdit(),
     );
   }
 }
