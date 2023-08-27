@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled6/account/birthday.dart';
+import 'package:buttermilly/account/birthday.dart';
 
 class AccountEdit extends StatelessWidget {
   AccountEdit({Key? key}) : super(key: key);

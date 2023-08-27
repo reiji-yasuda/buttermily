@@ -39,4 +39,3 @@ class SearchBar extends SearchDelegate<String> {
     );
   }
 }
-﻿
