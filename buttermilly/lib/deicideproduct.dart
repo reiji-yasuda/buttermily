@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
 
 
       //home: Screen1(),
-
-      home: LoginPage(),
-      //home: Accountprofiel(),
+      // home: LoginPage(),
+      // home: Accountprofiel(),
+      home: BottomNavBar(),
       // home: BottomNavBar(),
       //home: ChatScreen(),
       //home: GroupManu(),

@@ -1,5 +1,9 @@
+import 'package:buttermilly/post_page/post_papge.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+
+
+class ChatScreen extends StatelessWidget {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,6 +45,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   bool isFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -207,17 +212,25 @@ class _ChatScreenState extends State<ChatScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await _initializeControllerFuture;
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CameraScreen(controller: _controller),
-            ),
-          );
-        },
-        child: Icon(Icons.camera),
-      ),
+
+          onPressed: () => {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PostPage())),
+                // フローティングアクションボタンを押された時の処理.
+                print("フローティングアクションボタンをクリック")
+              },
+          child: Icon(Icons.add)),
+//         onPressed: () async {
+//           await _initializeControllerFuture;
+//           Navigator.push(
+//             context,
+//             MaterialPageRoute(
+//               builder: (context) => CameraScreen(controller: _controller),
+//             ),
+//           );
+//         },
+//         child: Icon(Icons.camera),
+//       ),
     );
   }
 }
