@@ -31,9 +31,29 @@ class _PostPageState extends State<PostPage> {
       createdTime: DateTime.now(),
       updatedTime: DateTime.now(),
     ),
+    Account(
+      id: '3',
+      name: '0時',
+      selfIntroduction: 'こんばんは',
+      userId: 'reiji.com',
+      imagePath:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL38yy-OeZfDZvmzsHPQzz-8QmfNJaEDIWbg&usqp=CAU',
+      createdTime: DateTime.now(),
+      updatedTime: DateTime.now(),
+    ),
   ];
   Account? selectedValue;
-  String finishInfo = 'Finish!';
+  String finishInfo = 'Finish!! 10ptゲットしました!';
+
+  void handlePostButton() {
+    if (selectedValue != null) {
+      followers.remove(selectedValue);
+      setState(() {
+        selectedValue;
+      });
+      print('Posted');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,19 +65,22 @@ class _PostPageState extends State<PostPage> {
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
             child: RichText(
-                text: TextSpan(children: [
-              TextSpan(
-                  text: 'Post',
-                  style: TextStyle(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'Post',
+                    style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.bold,
-                      fontSize: 25),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      print('Posted');
-                    }),
-            ])),
-          )
+                      fontSize: 25,
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = handlePostButton,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
       body: Column(
@@ -81,47 +104,56 @@ class _PostPageState extends State<PostPage> {
             padding: EdgeInsets.only(left: 10, right: 30),
             child: Row(
               children: [
-                PopupMenuButton<Account>(
-                  icon: Icon(Icons.arrow_right),
-                  color: Colors.white,
-                  initialValue: selectedValue,
-                  onSelected: (Account? newValue) {
-                    setState(() {
-                      selectedValue = newValue;
-                    });
-                  },
-                  itemBuilder: (context) {
-                    return followers
-                        .map(
-                          (e) => PopupMenuItem<Account>(
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  foregroundImage: NetworkImage(
-                                    e.imagePath,
+                if (followers.isEmpty)
+                  Text(
+                    finishInfo,
+                    style: TextStyle(color: Colors.blue, fontSize: 15),
+                  ),
+                if (followers
+                    .isNotEmpty) // Show PopupMenuButton only when followers are not empty
+                  PopupMenuButton<Account>(
+                    icon: Icon(Icons.arrow_right),
+                    color: Colors.white,
+                    initialValue: selectedValue,
+                    onSelected: (Account? newValue) {
+                      setState(() {
+                        selectedValue = newValue;
+                      });
+                    },
+                    itemBuilder: (context) {
+                      return followers
+                          .map(
+                            (e) => PopupMenuItem<Account>(
+                              child: Row(
+                                children: [
+                                  CircleAvatar(
+                                    foregroundImage: NetworkImage(
+                                      e.imagePath,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(width: 5),
-                                Text('${e.name}'),
-                              ],
+                                  SizedBox(width: 5),
+                                  Text('${e.name}'),
+                                ],
+                              ),
+                              value: e,
                             ),
-                            value: e,
-                          ),
-                        )
-                        .toList();
-                  },
-                ),
-                Text(
-                  'Next',
-                  style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 15,
-                      color: Colors.white),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                if (selectedValue != null)
+                          )
+                          .toList();
+                    },
+                  ),
+                if (followers.isNotEmpty)
+                  Text(
+                    'Next',
+                    style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        fontSize: 15,
+                        color: Colors.white),
+                  ),
+                if (followers.isNotEmpty)
+                  SizedBox(
+                    width: 20,
+                  ),
+                if (selectedValue != null && followers.isNotEmpty)
                   Column(
                     children: [
                       CircleAvatar(
@@ -145,17 +177,17 @@ class _PostPageState extends State<PostPage> {
                 hintText: 'Write',
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.grey, //通常時
+                    color: Colors.grey,
                   ),
                 ),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.blue, //入力中
+                    color: Colors.blue,
                   ),
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
