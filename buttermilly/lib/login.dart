@@ -1,3 +1,5 @@
+import 'package:buttermilly/bottombar.dart';
+
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -107,6 +109,8 @@ class _LoginPageState extends State<LoginPage> {
                       .user;
                   if (user != null)
                     print("ユーザ登録しました ${user.email} , ${user.uid}");
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BottomNavBar()));
                 } catch (e) {
                   print("ユーザーネームは13文字以内で英数字とアンダーバー(_)のみでご記入ください");
                 }
@@ -167,6 +171,8 @@ class _LoginPageState extends State<LoginPage> {
                       .user;
                   if (user != null)
                     print("ログインに成功しました。 ${user.email} , ${user.uid}");
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BottomNavBar()));
                 } catch (e) {
                   print("ログインに失敗しました");
                 }
