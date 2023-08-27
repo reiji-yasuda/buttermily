@@ -1,49 +1,14 @@
 import 'package:buttermilly/post_page/post_papge.dart';
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
-
-
-class ChatScreen extends StatelessWidget {
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final cameras = await availableCameras();
-
-  runApp(MaterialApp(
-    home: ChatScreen(cameras: cameras),
-  ));
-}
 
 class ChatScreen extends StatefulWidget {
-  final List<CameraDescription> cameras;
-
-  ChatScreen({required this.cameras});
+  const ChatScreen({super.key});
 
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  late CameraController _controller;
-  late Future<void> _initializeControllerFuture;
-
-  @override
-  void initState() {
-    super.initState();
-    // Initialize the camera controller
-    _controller = CameraController(
-      widget.cameras[0], // Use the first available camera
-      ResolutionPreset.medium,
-    );
-    _initializeControllerFuture = _controller.initialize();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose(); // Dispose of the camera controller
-    super.dispose();
-  }
-
   bool isFavorite = false;
 
   @override
@@ -212,7 +177,6 @@ class _ChatScreenState extends State<ChatScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-
           onPressed: () => {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => PostPage())),
@@ -236,9 +200,7 @@ class _ChatScreenState extends State<ChatScreen> {
 }
 
 class CameraScreen extends StatelessWidget {
-  final CameraController controller;
-
-  CameraScreen({required this.controller});
+  CameraScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -248,16 +210,6 @@ class CameraScreen extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          FutureBuilder<void>(
-            future: controller.initialize(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                return CameraPreview(controller);
-              } else {
-                return Center(child: CircularProgressIndicator());
-              }
-            },
-          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
