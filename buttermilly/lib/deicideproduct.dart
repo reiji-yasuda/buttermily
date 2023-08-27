@@ -6,6 +6,8 @@ import 'package:buttermilly/group/home.dart';
 import 'package:buttermilly/group/screen1.dart';
 import 'package:flutter/material.dart';
 
+import 'bottombar.dart';
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [],
       home: BottomNavBar(),
-
     );
   }
 }
