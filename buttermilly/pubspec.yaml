@@ -1,4 +1,4 @@
-name: untitled6
+name: buttermilly
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -41,6 +41,7 @@ dependencies:
   persistent_bottom_nav_bar: ^4.0.2
   flutter_datetime_picker: ^1.5.1
   image_picker: ^1.0.2
+  flutter_hooks: ^0.18.6
 
 
 dev_dependencies:

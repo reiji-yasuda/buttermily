@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled6/followers_page/followers_page.dart';
+import 'package:buttermilly/followers_page/followers_page.dart';
 
 class GroupAccountPage extends StatefulWidget {
   const GroupAccountPage({Key? key}) : super(key: key);
@@ -32,7 +32,7 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
               const SizedBox(
                 width: 30,
               ),
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(

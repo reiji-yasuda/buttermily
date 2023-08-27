@@ -30,7 +30,7 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
       body: ListView(
         children: [
           const SizedBox(height: 20),
-          const Stack(
+          Stack(
             alignment: Alignment.center,
             children: [
               CircleAvatar(
