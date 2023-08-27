@@ -10,6 +10,7 @@
 // import 'package:buttermilly/group/home_screen.dart';
 // import 'package:camera/camera.dart';
 import 'package:buttermilly/group/chat_screen.dart';
+import 'package:buttermilly/group/vote_screen.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 // import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -25,18 +26,19 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: [],
 
       // home: HomeScreen(),
-      home: FutureBuilder(
-        future: availableCameras(),
-        builder: (_, snapshot) {
-          final cameras = snapshot.data;
-          if (cameras == null) {
-            return Container();
-          }
-          return ChatScreen(
-            cameras: cameras,
-          );
-        },
-      ),
+      // home: FutureBuilder(
+      //   future: availableCameras(),
+      //   builder: (_, snapshot) {
+      //     final cameras = snapshot.data;
+      //     if (cameras == null) {
+      //       return Container();
+      //     }
+      //     return ChatScreen(
+      //       cameras: cameras,
+      //     );
+      //   },
+      // ),
+      home: VoteScreen(),
       // home: LoginPage(),
     );
   }
