@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:buttermilly/bottombar.dart';
 
 class Accountprofiel extends StatelessWidget {
   Accountprofiel({Key? key}) : super(key: key);
@@ -13,17 +14,19 @@ class Accountprofiel extends StatelessWidget {
         elevation: 1,
         backgroundColor: Colors.orange[100],
         actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 20),
+          ),
           Icon(Icons.menu),
         ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(padding: const EdgeInsets.only(top: 5.0)),
           //Text(),
           Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
                   height: 20.0,
@@ -60,16 +63,18 @@ class Accountprofiel extends StatelessWidget {
               ]),
           Row(
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  // Navigator.push(context,MaterialPageRoute(builder: (context) => ()));
-                },
-                child: const Text(
-                  'Edit',
-                  style: TextStyle(fontSize: 18),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigator.push(context,MaterialPageRoute(builder: (context) => ()));
+                  },
+                  child: const Text(
+                    'Edit',
+                    style: TextStyle(fontSize: 18),
+                  ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(right: 20.0),
               ),
               ElevatedButton(
