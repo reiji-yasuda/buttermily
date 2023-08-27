@@ -1,13 +1,16 @@
 import 'package:buttermilly/account/account.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:buttermilly/group/home_screen.dart';
+import 'package:buttermilly/group_manu/group_manu.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-// import 'package:hooks_riverpod/hooks_riverpod.dart';
-// import 'package:buttermilly/bottombar.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 //表示する画面のリスト
-var _pages = <Widget>[];
+var _pages = <Widget>[
+  HomeScreen(),
+  GroupManu(),
+  Accountprofiel(),
+];
 
 class BottomNavBar extends StatelessWidget {
   BottomNavBar({Key? key}) : super(key: key);
@@ -35,10 +38,19 @@ class BottomNavBar extends StatelessWidget {
             inactiveColorPrimary: Colors.white,
           ),
         ],
+        navBarStyle: NavBarStyle.simple,
+        backgroundColor: Colors.white,
+        decoration: NavBarDecoration(
+          border: Border.all(
+            width: 1,
+            color: Colors.grey,
+          ),
+        ),
       ),
     );
   }
 }
+
 
 // final StateProvider<int> bottomNavBarSelectedIndexProvider =
 //     StateProvider((ref) => 0);

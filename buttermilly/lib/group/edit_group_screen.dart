@@ -27,7 +27,7 @@ class _EditGroupScreenState extends State<EditGroupScreen> {
             alignment: Alignment.center, // 中央寄せ
             children: [
               CircleAvatar(
-                radius: 40,
+                radius: 60,
                 backgroundColor: Color.fromARGB(255, 232, 232, 232),
               ),
               Positioned(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled6/model/hayata1.dart';
+import 'package:buttermilly/model/hayata1.dart';
 
 class FollowersPage extends StatefulWidget {
   const FollowersPage({Key? key}) : super(key: key);
@@ -47,7 +47,7 @@ class _FollowersPageState extends State<FollowersPage> {
           child: Column(
             children: [
               const SizedBox(height: 20), // 余白を追加
-              const Row(
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

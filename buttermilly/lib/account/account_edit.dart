@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:buttermilly/account/birthday.dart';
 
 class AccountEdit extends StatelessWidget {
   AccountEdit({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class AccountEdit extends StatelessWidget {
         ),
         Center(
           child: CircleAvatar(
-            radius: 30.0,
+            radius: 80.0,
             backgroundColor: Colors.white,
             backgroundImage: AssetImage('image/Ellipse11.png'),
           ),
@@ -37,7 +38,8 @@ class AccountEdit extends StatelessWidget {
           child: TextField(
             decoration: InputDecoration(
               labelText: "name",
-              hintTextDirection: null, //Icon(Icons.border_color_outlined),
+              hintTextDirection:
+                  null, //Icon(Icons.border_color_outlined),kokokiku
             ),
           ),
         ),
@@ -47,8 +49,8 @@ class AccountEdit extends StatelessWidget {
               hintText: "自己紹介",
             ),
           ),
-        )
-        // Center(),
+        ),
+        InputBirthdayWidget()
       ]),
     );
   }
