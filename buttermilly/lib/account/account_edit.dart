@@ -1,3 +1,4 @@
+import 'package:buttermilly/account/birthday.dart';
 import 'package:flutter/material.dart';
 
 class AccountEdit extends StatelessWidget {
@@ -37,7 +38,8 @@ class AccountEdit extends StatelessWidget {
           child: TextField(
             decoration: InputDecoration(
               labelText: "name",
-              hintTextDirection: null, //Icon(Icons.border_color_outlined),
+              hintTextDirection:
+                  null, //Icon(Icons.border_color_outlined),kokokiku
             ),
           ),
         ),
@@ -47,8 +49,8 @@ class AccountEdit extends StatelessWidget {
               hintText: "自己紹介",
             ),
           ),
-        )
-        // Center(),
+        ),
+        InputBirthdayWidget(),
       ]),
     );
   }
