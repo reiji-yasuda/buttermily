@@ -11,3 +11,20 @@ Future<void> main() async {
   );
   runApp(ProviderScope(child: MyApp()));
 }
+
+// import 'package:flutter/material.dart';
+// import 'package:untitled6/bottombar.dart';
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     //子widgetにデータを渡す
+//     return MaterialApp(
+//       title: 'Buttermily',
+//       theme: ThemeData(),
+//       debugShowCheckedModeBanner: false,
+//       localizationsDelegates: [],
+//       home: BottomNavBar(),
+//     );
+//   }
+// }

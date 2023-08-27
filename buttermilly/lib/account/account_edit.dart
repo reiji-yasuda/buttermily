@@ -18,7 +18,7 @@ class AccountEdit extends StatelessWidget {
         ),
         Center(
           child: CircleAvatar(
-            radius: 30.0,
+            radius: 80.0,
             backgroundColor: Colors.white,
             backgroundImage: AssetImage('image/Ellipse11.png'),
           ),
