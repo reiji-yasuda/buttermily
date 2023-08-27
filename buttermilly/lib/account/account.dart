@@ -1,4 +1,7 @@
 import 'package:buttermilly/account/account_edit.dart';
+import 'package:buttermilly/followers_page/follow_page.dart';
+import 'package:buttermilly/followers_page/followers_page.dart';
+import 'package:buttermilly/group/chat_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -21,7 +24,10 @@ class Accountprofiel extends StatelessWidget {
         actions: const [
           Padding(
             padding: EdgeInsets.all(20),
-            child: Icon(Icons.menu),
+            child: Icon(
+              Icons.notifications,
+              size: 30,
+            ),
           ),
         ],
       ),
@@ -31,7 +37,7 @@ class Accountprofiel extends StatelessWidget {
           //Text(),
           Row(children: [
             Padding(
-              padding: EdgeInsets.only(left: 40.0, top: 200.0),
+              padding: EdgeInsets.only(left: 30.0, top: 200.0),
             ),
             CircleAvatar(
               radius: 70.0,
@@ -43,11 +49,28 @@ class Accountprofiel extends StatelessWidget {
             ),
             Column(
               children: [
-                Text(
-                  '120',
-                  style: TextStyle(fontSize: 30.0),
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(color: Colors.black),
+                    children: [
+                      TextSpan(
+                        text: '120',
+                        style: const TextStyle(
+                          fontSize: 30.0,
+                          height: 1,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => FollowPage()));
+                          },
+                      ),
+                    ],
+                  ),
                 ),
-                Text('Followers', style: TextStyle(fontSize: 17.0)),
+                Text('Follow', style: TextStyle(fontSize: 17.0)),
               ],
             ),
             SizedBox(
@@ -55,15 +78,35 @@ class Accountprofiel extends StatelessWidget {
             ),
             Column(
               children: [
-                Text(
-                  '120',
-                  style: TextStyle(fontSize: 30.0),
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(color: Colors.black),
+                    children: [
+                      TextSpan(
+                        text: '1000',
+                        style: const TextStyle(
+                          fontSize: 30.0,
+                          height: 1,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => FollowersPage()));
+                          },
+                      ),
+                    ],
+                  ),
                 ),
                 Text('Followers', style: TextStyle(fontSize: 17.0)),
               ],
-              //Text(),
             ),
           ]),
+          Padding(
+            padding: EdgeInsets.only(top: 10),
+          ),
+          // Text(),
           Row(
             children: [
               Padding(
@@ -137,7 +180,10 @@ class Accountprofiel extends StatelessWidget {
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        //Navigator.push(context,MaterialPageRoute(builder: (context) => ()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ChatScreen()));
                       },
                   ),
                 ],
@@ -173,7 +219,10 @@ class Accountprofiel extends StatelessWidget {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          //Navigator.push(context,MaterialPageRoute(builder: (context) => ()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ChatScreen()));
                         },
                     ),
                   ],
