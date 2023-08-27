@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: [],
 
       //home: Screen1(),
-      // home: LoginPage(),
+      home: ChatScreen(),
       // home: Accountprofiel(),
-      home: BottomNavBar(),
+      // home: BottomNavBar(),
 
       // home: BottomNavBar(),
       //home: ChatScreen(),

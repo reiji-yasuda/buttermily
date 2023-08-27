@@ -1,6 +1,8 @@
 import 'package:buttermilly/post_page/post_papge.dart';
 import 'package:flutter/material.dart';
 
+import '../account/account.dart';
+
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
@@ -14,6 +16,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -34,19 +37,20 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       body: ListView(
         children: [
+          
           Container(
             color: Colors.white,
             width: 500,
-            height: 520,
+            height: 600,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => Muttyo()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Accountprofiel()),
+                    );
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -55,6 +59,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
                     child: CircleAvatar(
                       radius: 20,
+                      backgroundImage: AssetImage('image/Ellipse11.png'),
                     ),
                   ),
                 ),
@@ -71,19 +76,32 @@ class _ChatScreenState extends State<ChatScreen> {
                         ),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color.fromARGB(255, 163, 237, 225),
+                    GestureDetector(
+                      onDoubleTap: () {
+                        setState(() {
+                                  isFavorite =! isFavorite; // 変数をトグルして色を切り替え
+                                          });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color.fromARGB(255, 163, 237, 225),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'image/fireflower.jpg',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        width: 280,
+                        height: 390,
                       ),
-                      width: 280,
-                      height: 390,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width: 20,
+                          width: 10,
                           height: 390,
                         ),
                         Container(
@@ -95,12 +113,14 @@ class _ChatScreenState extends State<ChatScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: IconButton(
+                                    padding: const EdgeInsets.only(left: 15),
+                                    
+                                    child: IconButton(
                                         icon: Icon(Icons.favorite,
                                             color: isFavorite
                                                 ? Colors.pink
-                                                : Colors.grey),
+                                                : Colors.grey
+                                                ),
                                         onPressed: () {
                                           setState(() {
                                             isFavorite =
@@ -108,10 +128,8 @@ class _ChatScreenState extends State<ChatScreen> {
                                           });
                                         },
                                         //タップ中の色
-                                      )),
-                                  // SizedBox(
-                                  //   height: 3,
-                                  // ),
+                                    )
+                                  ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 10),
                                     child: Container(
@@ -125,12 +143,9 @@ class _ChatScreenState extends State<ChatScreen> {
                                   ),
                                 ],
                               ),
-                              Row(
-                                children: [
-                                  Text('Next'),
-                                  Icon(Icons.account_circle),
-                                ],
-                              ),
+                                  
+                                 
+                              
                             ],
                           ),
                         ),
@@ -141,60 +156,49 @@ class _ChatScreenState extends State<ChatScreen> {
               ],
             ),
           ),
-          Column(children: [
-            Text(
-              '今日の１枚を\n 投稿しよう!!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.only(top: 20, right: 0, bottom: 0, left: 0),
-              child: SizedBox(
-                width: 140, //横幅
-                height: 45, //高さ
-                child: ElevatedButton(
-                  onPressed: () {},
+          Align(
+                  alignment: Alignment.center,
                   child: Text(
-                    "GO",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    onPrimary: Colors.black, //押したときの色！！
+                    'グループの１枚を\n   投稿しよう!!',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                 ),
-              ),
-            ),
-            SizedBox(
-              width: 300,
-              height: 300,
-            )
-          ]),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 20, right: 100, bottom: 0, left: 100),//高さ
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        "GO",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        onPrimary: Colors.black, //押したときの色！！
+                      ),
+                    ),
+                  ),
+              
+                SizedBox(
+                  width: 300,
+                  height: 300,
+                ),
+
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () => {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PostPage())),
-                // フローティングアクションボタンを押された時の処理.
-                print("フローティングアクションボタンをクリック")
-              },
-          child: Icon(Icons.add)),
-//         onPressed: () async {
-//           await _initializeControllerFuture;
-//           Navigator.push(
-//             context,
-//             MaterialPageRoute(
-//               builder: (context) => CameraScreen(controller: _controller),
-//             ),
-//           );
-//         },
-//         child: Icon(Icons.camera),
-//       ),
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => PostPage()));
+          // フローティングアクションボタンを押された時の処理.
+          print("フローティングアクションボタンをクリック");
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
@@ -205,6 +209,7 @@ class CameraScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('キャメラ！'),
       ),

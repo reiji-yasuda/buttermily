@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 import 'package:buttermilly/account/account.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -11,8 +12,9 @@ class HomeScreen extends StatefulWidget {
 class _Screen1State extends State<HomeScreen> {
   File? image;
   ImagePicker picker = ImagePicker();
-
+  bool isFavorite = false;
   Future<void> getImageFromGallery() async {
+    
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
@@ -100,26 +102,33 @@ class _Screen1State extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color.fromARGB(255, 163, 237, 225),
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'image/fireflower.jpg',
+                    GestureDetector(
+                      onDoubleTap: () {
+                        setState(() {
+                                  isFavorite =! isFavorite; // 変数をトグルして色を切り替え
+                                          });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color.fromARGB(255, 163, 237, 225),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'image/fireflower.jpg',
+                            ),
+                            fit: BoxFit.cover,
                           ),
-                          fit: BoxFit.cover,
                         ),
+                        width: 280,
+                        height: 390,
                       ),
-                      width: 280,
-                      height: 390,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width: 20,
-                          height: 400,
+                          width: 10,
+                          height: 390,
                         ),
                         Container(
                           width: 260,
@@ -130,14 +139,22 @@ class _Screen1State extends State<HomeScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Icon(
-                                      Icons.favorite,
-                                      size: 30,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 3,
+                                    padding: const EdgeInsets.only(left: 15),
+                                    
+                                    child: IconButton(
+                                        icon: Icon(Icons.favorite,
+                                            color: isFavorite
+                                                ? Colors.pink
+                                                : Colors.grey
+                                                ),
+                                        onPressed: () {
+                                          setState(() {
+                                            isFavorite =
+                                                !isFavorite; // 変数をトグルして色を切り替え
+                                          });
+                                        },
+                                        //タップ中の色
+                                    )
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 10),
@@ -152,13 +169,11 @@ class _Screen1State extends State<HomeScreen> {
                                   ),
                                 ],
                               ),
-                              Row(
-                                children: [
+                                  
                                   Icon(
                                     Icons.card_giftcard,
                                   ),
-                                ],
-                              ),
+                              
                             ],
                           ),
                         ),
