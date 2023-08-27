@@ -1,4 +1,5 @@
 import 'package:buttermilly/account/account.dart';
+import 'package:buttermilly/account/account_edit.dart';
 import 'package:buttermilly/bottombar.dart';
 import 'package:buttermilly/group/edit_group_screen.dart';
 import 'package:buttermilly/login.dart';
@@ -19,8 +20,9 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: [],
 
       //home: Screen1(),
-      home: ChatScreen(),
       //home: LoginPage(),
+      home: Accountprofiel(),
+      //home: ChatScreen(),
     );
   }
 }
