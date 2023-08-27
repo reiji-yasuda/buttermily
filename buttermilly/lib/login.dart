@@ -1,5 +1,4 @@
 import 'package:buttermilly/bottombar.dart';
-
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -48,13 +47,12 @@ class _LoginPageState extends State<LoginPage> {
         appBar: AppBar(
           backgroundColor: Colors.black38,
           title: const Text(
-            
             'buttermily',
-            
           ),
           bottom: TabBar(
             tabs: _tab,
-            indicator: BoxDecoration( // タブの下に表示されるインディケーターのスタイルを設定
+            indicator: BoxDecoration(
+              // タブの下に表示されるインディケーターのスタイルを設定
               color: Colors.black12, // インディケーターの背景色
               borderRadius: BorderRadius.circular(8.0), // インディケーターの角丸
             ),
@@ -99,7 +97,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              
               child: const Text('ユーザ登録'),
               onPressed: () async {
                 try {
@@ -116,9 +113,12 @@ class _LoginPageState extends State<LoginPage> {
                 }
               },
               style: ButtonStyle(
-                fixedSize: MaterialStateProperty.all(Size(300, 48.0)), // ボタンの横幅を親要素の幅いっぱいに、高さを48.0に設定
-                backgroundColor: MaterialStateProperty.all(Colors.blue), // ボタンの背景色
-                foregroundColor: MaterialStateProperty.all(Colors.white), // ボタンのテキスト色
+                fixedSize: MaterialStateProperty.all(
+                    Size(300, 48.0)), // ボタンの横幅を親要素の幅いっぱいに、高さを48.0に設定
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.blue), // ボタンの背景色
+                foregroundColor:
+                    MaterialStateProperty.all(Colors.white), // ボタンのテキスト色
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
@@ -177,33 +177,33 @@ class _LoginPageState extends State<LoginPage> {
                   print("ログインに失敗しました");
                 }
               },
-              
               style: ButtonStyle(
-                fixedSize: MaterialStateProperty.all(Size(300, 48.0)), // ボタンの横幅を親要素の幅いっぱいに、高さを48.0に設定
-                backgroundColor: MaterialStateProperty.all(Colors.blue), // ボタンの背景色
-                foregroundColor: MaterialStateProperty.all(Colors.white), // ボタンのテキスト色
+                fixedSize: MaterialStateProperty.all(
+                    Size(300, 48.0)), // ボタンの横幅を親要素の幅いっぱいに、高さを48.0に設定
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.blue), // ボタンの背景色
+                foregroundColor:
+                    MaterialStateProperty.all(Colors.white), // ボタンのテキスト色
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ), // 角丸の設定
               ),
-              
             ),
             const SizedBox(height: 5),
             TextButton(
-                child: const Text('パスワードリセット'),
-                onPressed: () async {
-                  try {
-                    await FirebaseAuth.instance
-                        .sendPasswordResetEmail(email: _email);
-                    print("パスワードリセット用のメールを送信しました");
-                  } catch (e) {
-                    print("パスワードリセットに失敗しました");
-                  }
-                },
-                
-              ),      
+              child: const Text('パスワードリセット'),
+              onPressed: () async {
+                try {
+                  await FirebaseAuth.instance
+                      .sendPasswordResetEmail(email: _email);
+                  print("パスワードリセット用のメールを送信しました");
+                } catch (e) {
+                  print("パスワードリセットに失敗しました");
+                }
+              },
+            ),
           ],
         ),
       ),
