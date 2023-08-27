@@ -34,6 +34,7 @@ class _FollowersPageState extends State<FollowersPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.transparent,
         title: const Text(
           'Followers',
