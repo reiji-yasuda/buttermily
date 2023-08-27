@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class Accountprofiel extends StatelessWidget {
@@ -87,7 +88,54 @@ class Accountprofiel extends StatelessWidget {
             Text('所属中のグループ'),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: [],
+              children: [
+                CircleAvatar(
+                  radius: 30.0,
+                  backgroundColor: Colors.white,
+                  backgroundImage: AssetImage('image/Ellipse11.dart'),
+                ),
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(color: Colors.black),
+                    children: [
+                      TextSpan(
+                        text: 'グループ名(3)',
+                        style: const TextStyle(
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold,
+                          height: 1,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            //Navigator.push(context,MaterialPageRoute(builder: (context) => ()));
+                          },
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 1,
+                ),
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(color: Colors.black),
+                    children: [
+                      TextSpan(
+                        text: 'グループ名(3)',
+                        style: const TextStyle(
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold,
+                          height: 1,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            //Navigator.push(context,MaterialPageRoute(builder: (context) => ()));
+                          },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ));
