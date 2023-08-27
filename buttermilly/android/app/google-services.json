@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "970633298102",
+    "project_id": "buttermillyauth",
+    "storage_bucket": "buttermillyauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970633298102:android:1f7b3bd687822379966617",
+        "android_client_info": {
+          "package_name": "com.example.buttermilly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970633298102-ln8un162uke0on5nd9c1le04os5144t2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZQJnf9nB9tOBdo1UYXg5QvlY2A0mBKv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970633298102-ln8un162uke0on5nd9c1le04os5144t2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "970633298102-hljdsid93e80nvlht6033b6pelg81cl4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.buttermilly"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
