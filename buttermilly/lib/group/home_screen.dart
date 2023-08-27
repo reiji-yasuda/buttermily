@@ -91,6 +91,7 @@ class _Screen1State extends State<HomeScreen> {
                     ),
                     child: CircleAvatar(
                       radius: 20,
+                      backgroundImage: AssetImage('image/Ellipse11.png'),
                     ),
                   ),
                 ),
@@ -111,6 +112,7 @@ class _Screen1State extends State<HomeScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Color.fromARGB(255, 163, 237, 225),
+                        image: AssetImage('image/fireflower.jpg'),
                       ),
                       width: 280,
                       height: 390,
