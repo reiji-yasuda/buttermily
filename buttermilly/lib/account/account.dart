@@ -1,3 +1,4 @@
+import 'package:buttermilly/account/account_edit.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -8,6 +9,10 @@ class Accountprofiel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    final textwidth = size.width;
+    final textheight = size.height;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -15,58 +20,62 @@ class Accountprofiel extends StatelessWidget {
         backgroundColor: Colors.orange[100],
         actions: const [
           Padding(
-            padding: EdgeInsets.only(right: 20),
+            padding: EdgeInsets.all(20),
+            child: Icon(Icons.menu),
           ),
-          Icon(Icons.menu),
         ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //Text(),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
+          Row(children: [
+            Padding(
+              padding: EdgeInsets.only(left: 40.0, top: 200.0),
+            ),
+            CircleAvatar(
+              radius: 70.0,
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage('image/Ellipse11.png'),
+            ),
+            SizedBox(
+              width: 40.0,
+            ),
+            Column(
               children: [
-                SizedBox(
-                  height: 20.0,
+                Text(
+                  '120',
+                  style: TextStyle(fontSize: 30.0),
                 ),
-                CircleAvatar(
-                  radius: 50.0,
-                  backgroundColor: Colors.white,
-                  backgroundImage: AssetImage('image/Ellipse11.png'),
+                Text('Followers', style: TextStyle(fontSize: 17.0)),
+              ],
+            ),
+            SizedBox(
+              width: 30.0,
+            ),
+            Column(
+              children: [
+                Text(
+                  '120',
+                  style: TextStyle(fontSize: 30.0),
                 ),
-                SizedBox(
-                  width: 20.0,
-                ),
-                Column(
-                  children: [
-                    Text(
-                      '120',
-                      style: TextStyle(fontSize: 20.0),
-                    ),
-                    Text('Followers', style: TextStyle(fontSize: 12.0)),
-                  ],
-                ),
-                SizedBox(
-                  width: 20.0,
-                ),
-                Column(
-                  children: [
-                    Text(
-                      '120',
-                      style: TextStyle(fontSize: 20.0),
-                    ),
-                    Text('Followers', style: TextStyle(fontSize: 12.0)),
-                  ],
-                ),
-              ]),
+                Text('Followers', style: TextStyle(fontSize: 17.0)),
+              ],
+              //Text(),
+            ),
+          ]),
           Row(
             children: [
-              Center(
+              Padding(
+                padding: EdgeInsets.only(left: textwidth / 2 - 100),
+              ),
+              SizedBox(
+                width: textwidth / 5.0,
+                height: 30,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigator.push(context,MaterialPageRoute(builder: (context) => ()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AccountEdit()));
                   },
                   child: const Text(
                     'Edit',
@@ -77,13 +86,17 @@ class Accountprofiel extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(right: 20.0),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) => ()));
-                },
-                child: const Text(
-                  'Share',
-                  style: TextStyle(fontSize: 18.0),
+              SizedBox(
+                width: textwidth / 5.0,
+                height: 30,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => ()));
+                  },
+                  child: const Text(
+                    'Share',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
                 ),
               ),
             ],
@@ -92,11 +105,20 @@ class Accountprofiel extends StatelessWidget {
             height: 20.0,
           ),
           Text('所属中のグループ'),
-          Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+          Padding(
+            padding: EdgeInsets.only(top: 10),
+          ),
+          Row(children: [
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+            ),
             CircleAvatar(
               radius: 30.0,
               backgroundColor: Colors.white,
-              backgroundImage: AssetImage('image/Ellipse11.dart'),
+              backgroundImage: AssetImage('image/Ellipse11.png'),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 20),
             ),
             RichText(
               text: TextSpan(
@@ -119,15 +141,20 @@ class Accountprofiel extends StatelessWidget {
             ),
           ]),
           SizedBox(
-            height: 1,
+            height: 10,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+              ),
               CircleAvatar(
                 radius: 30.0,
                 backgroundColor: Colors.white,
-                backgroundImage: AssetImage('image/Ellipse11.dart'),
+                backgroundImage: AssetImage('image/Ellipse11.png'),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 20),
               ),
               RichText(
                 text: TextSpan(
