@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: [],
 
       //home: Screen1(),
-      // home: LoginPage(),
+      home: LoginPage(),
       //home: Accountprofiel(),
       // home: BottomNavBar(),
       //home: ChatScreen(),
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       //home: GroupAccountPage(),
       //home: AccountEdit(),
       // home: FollowersPage(),
-      home: HomeScreen(),
+      // home: HomeScreen(),
     );
   }
 }
