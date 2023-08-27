@@ -1,17 +1,5 @@
+import 'package:buttermilly/post_page/post_papge.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ChatScreen(),
-    );
-  }
-}
 
 class ChatScreen extends StatelessWidget {
   @override
@@ -140,6 +128,8 @@ class ChatScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () => {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PostPage())),
                 // フローティングアクションボタンを押された時の処理.
                 print("フローティングアクションボタンをクリック")
               },

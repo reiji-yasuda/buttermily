@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:buttermilly/account/account.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -24,22 +25,13 @@ class _Screen1State extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        centerTitle: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
           'BUTTURMILLY',
           style: TextStyle(color: Colors.black),
         ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Icon(
-              Icons.dehaze_sharp,
-              color: Colors.black,
-            ),
-          ),
-        ],
       ),
       body: ListView(
         children: [
@@ -81,7 +73,7 @@ class _Screen1State extends State<HomeScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Muttyo()),
+                      MaterialPageRoute(builder: (context) => Accountprofiel()),
                     );
                   },
                   child: Padding(
