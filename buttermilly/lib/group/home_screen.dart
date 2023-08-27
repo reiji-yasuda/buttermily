@@ -2,12 +2,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class Screen1 extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
   _Screen1State createState() => _Screen1State();
 }
 
-class _Screen1State extends State<Screen1> {
+class _Screen1State extends State<HomeScreen> {
   File? image;
   ImagePicker picker = ImagePicker();
 
