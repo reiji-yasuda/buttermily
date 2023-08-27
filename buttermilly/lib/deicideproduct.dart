@@ -17,8 +17,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [],
+
+      //home: Screen1(),
+      home: BottomNavBar(),
       //home: LoginPage(),
-      home: Screen1(),
+  
+
     );
   }
 }
