@@ -43,7 +43,7 @@ class _GroupManuState extends State<GroupManu> {
             size: 40,
           ),
           Text('思い出をつくる', textAlign: TextAlign.center),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(top: 15, left: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
