@@ -9,6 +9,7 @@ import 'package:buttermilly/login.dart';
 import 'package:buttermilly/group/chat_screen.dart';
 import 'package:buttermilly/group/home_screen.dart';
 import 'package:buttermilly/group/chat_screen.dart';
+import 'package:buttermilly/post_page/post_papge.dart';
 import 'package:flutter/material.dart';
 // import 'bottombar.dart';
 
@@ -29,8 +30,9 @@ class MyApp extends StatelessWidget {
       //home: ChatScreen(),
       //home: GroupManu(),
       //home: GroupAccountPage(),
-      home: AccountEdit(),
+      // home: AccountEdit(),
       // home: FollowersPage(),
+      home: PostPage(),
 
       // home: HomeScreen(),
 //       home: FutureBuilder(

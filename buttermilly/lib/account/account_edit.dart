@@ -9,6 +9,7 @@ final _Edits = [TextEditingController];
 final sendProvider = StateProvider<String>((ref) => );
 
 class AccountEdit extends StatefulWidget {
+  AccountEdit ({Key? key}) :super(key: key)
   @override
   _EditProfilePageState creatState() => _EditProfilePageState();
 }
@@ -44,7 +45,8 @@ class _EditProfilePageState extends State<AccountEdit> {
         SizedBox(
           height: 10.0,
         ),
-        Center(
+        SizedBox(
+          width: textwidth/3*2,
           child: TextField(
             controller: _textEditingusername,
             decoration: InputDecoration(
@@ -53,7 +55,8 @@ class _EditProfilePageState extends State<AccountEdit> {
             ),
           ),
         ),
-        Center(
+        SizedBox(
+          width: textwidth/3*2,
           child: TextField(
             controller: _textEditingname,
             decoration: InputDecoration(
@@ -62,7 +65,8 @@ class _EditProfilePageState extends State<AccountEdit> {
             ),
           ),
         ),
-        Center(
+        SizedBox(
+          width: textwidth/3*2,
           child: TextField(
             controller: _textEditingselfintro,
             decoration: InputDecoration(
