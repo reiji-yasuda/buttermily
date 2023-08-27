@@ -44,9 +44,18 @@ class _LoginPageState extends State<LoginPage> {
       length: _tab.length,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('buttermily'),
+          backgroundColor: Colors.black38,
+          title: const Text(
+            
+            'buttermily',
+            
+          ),
           bottom: TabBar(
             tabs: _tab,
+            indicator: BoxDecoration( // タブの下に表示されるインディケーターのスタイルを設定
+              color: Colors.black12, // インディケーターの背景色
+              borderRadius: BorderRadius.circular(8.0), // インディケーターの角丸
+            ),
           ),
         ),
         body: TabBarView(
@@ -76,6 +85,7 @@ class _LoginPageState extends State<LoginPage> {
               },
             ),
             // 2行目 パスワード入力用テキストフィールド
+            const SizedBox(height: 30),
             TextFormField(
               decoration: const InputDecoration(labelText: 'パスワード'),
               obscureText: true,
@@ -85,7 +95,9 @@ class _LoginPageState extends State<LoginPage> {
                 });
               },
             ),
+            const SizedBox(height: 30),
             ElevatedButton(
+              
               child: const Text('ユーザ登録'),
               onPressed: () async {
                 try {
@@ -99,6 +111,16 @@ class _LoginPageState extends State<LoginPage> {
                   print("ユーザーネームは13文字以内で英数字とアンダーバー(_)のみでご記入ください");
                 }
               },
+              style: ButtonStyle(
+                fixedSize: MaterialStateProperty.all(Size(300, 48.0)), // ボタンの横幅を親要素の幅いっぱいに、高さを48.0に設定
+                backgroundColor: MaterialStateProperty.all(Colors.blue), // ボタンの背景色
+                foregroundColor: MaterialStateProperty.all(Colors.white), // ボタンのテキスト色
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ), // 角丸の設定
+              ),
             ),
           ],
         ),
@@ -122,6 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                 });
               },
             ),
+            const SizedBox(height: 30),
             // 2行目 パスワード入力用テキストフィールド
             TextFormField(
               decoration: const InputDecoration(labelText: 'パスワード'),
@@ -132,6 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                 });
               },
             ),
+            const SizedBox(height: 20),
             ElevatedButton(
               child: const Text('ログイン'),
               onPressed: () async {
@@ -147,8 +171,21 @@ class _LoginPageState extends State<LoginPage> {
                   print("ログインに失敗しました");
                 }
               },
+              
+              style: ButtonStyle(
+                fixedSize: MaterialStateProperty.all(Size(300, 48.0)), // ボタンの横幅を親要素の幅いっぱいに、高さを48.0に設定
+                backgroundColor: MaterialStateProperty.all(Colors.blue), // ボタンの背景色
+                foregroundColor: MaterialStateProperty.all(Colors.white), // ボタンのテキスト色
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ), // 角丸の設定
+              ),
+              
             ),
-            ElevatedButton(
+            const SizedBox(height: 5),
+            TextButton(
                 child: const Text('パスワードリセット'),
                 onPressed: () async {
                   try {
@@ -156,9 +193,11 @@ class _LoginPageState extends State<LoginPage> {
                         .sendPasswordResetEmail(email: _email);
                     print("パスワードリセット用のメールを送信しました");
                   } catch (e) {
-                    print(e);
+                    print("パスワードリセットに失敗しました");
                   }
-                }),
+                },
+                
+              ),      
           ],
         ),
       ),
