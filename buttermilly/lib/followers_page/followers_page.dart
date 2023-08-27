@@ -34,11 +34,13 @@ class _FollowersPageState extends State<FollowersPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         centerTitle: true,
         backgroundColor: Colors.transparent,
         title: const Text(
           'Followers',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
       body: SingleChildScrollView(
