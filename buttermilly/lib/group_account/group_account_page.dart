@@ -10,10 +10,15 @@ class GroupAccountPage extends StatefulWidget {
 }
 
 class _GroupAccountPageState extends State<GroupAccountPage> {
+  Future<String> getText() async {
+    await Future.delayed(const Duration(seconds: 2));
+    return '10pt';  
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: Colors.white, elevation: 0,),
       body: ListView(
         children: [
           Row(
@@ -23,6 +28,7 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
                 borderRadius: BorderRadius.circular(50),
                 child: const CircleAvatar(
                   radius: 50,
+                  backgroundImage: NetworkImage('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgahag.net%2Fimg%2F201511%2F28s%2Fgahag-0030358547-1.jpg&f=1&nofb=1&ipt=15357669fbb80a8c8880e52274b20dae92b5f93968511ae0c45efb4ebf980b23&ipo=images')
                 ),
               ),
               Container(
@@ -59,12 +65,15 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
             ],
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(top: 30, right: 20, left: 20, bottom: 10),
+            padding: const EdgeInsets.only(top: 30, right: 20, left: 20, bottom: 10),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.grey,
+                image: DecorationImage(
+                          image: AssetImage('image/IMG_2312.jpg'),
+                          fit: BoxFit.cover,
+                          ),
               ),
               height: 180,
             ),
@@ -72,8 +81,8 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+              '私たちなかよし4人家族です！よろしくお願いします！',
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
               maxLines: 1,
               textAlign: TextAlign.start,
               overflow: TextOverflow.ellipsis,
@@ -136,12 +145,27 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
                 padding: const EdgeInsets.only(top: 25, right: 60),
                 child: Container(
                   alignment: Alignment.topRight,
-                  child: const Text(
-                    '350pt',
-                    style: TextStyle(
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: FutureBuilder<String>(
+                    future: getText(),
+                    builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        } else {
+                          return Text(
+                            snapshot.data ?? '0pt',
+                            style: TextStyle(
+                              fontSize: 50,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          );
+                        }
+                      } else {
+                        // While the future is running, show a loading indicator
+                        return Text('0pt', style: TextStyle(fontSize: 50,
+                              fontWeight: FontWeight.bold,),);
+                      }
+                    },
                   ),
                 ),
               ),
@@ -178,6 +202,12 @@ class _GroupAccountPageState extends State<GroupAccountPage> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey,
+                image: DecorationImage(
+                  image: AssetImage(
+                          'image/fireflower.jpg',
+                        ),
+                  fit: BoxFit.cover,
+                ),
               ),
               height: 550,
             ),

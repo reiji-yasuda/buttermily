@@ -73,6 +73,10 @@ flutter:
   assets: 
     - image/Ellipse11.png
     - image/fireflower.jpg
+    - image/20171114-3.jpg
+    - image/IMG_4679.jpg
+    - image/IMG_2312.jpg
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
