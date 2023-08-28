@@ -109,16 +109,16 @@ class _Screen1State extends State<HomeScreen> {
                                           });
                       },
                       child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 163, 237, 225),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'image/fireflower.jpg',
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color.fromARGB(255, 163, 237, 225),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    'image/fireflower.jpg',
+                                  ),
+                                  fit: BoxFit.cover ,
+                                ),
+                              ),
                         width: 280,
                         height: 390,
                       ),

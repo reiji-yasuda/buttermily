@@ -41,6 +41,16 @@ class _PostPageState extends State<PostPage> {
       createdTime: DateTime.now(),
       updatedTime: DateTime.now(),
     ),
+    Account(
+      id: '',
+      name: 'Finish',
+      selfIntroduction: '',
+      userId: '',
+      imagePath:
+          '',
+      createdTime: DateTime.now(),
+      updatedTime: DateTime.now(),
+    )
   ];
   Account? selectedValue;
   String finishInfo = 'Finish!! 10ptゲットしました!';
@@ -93,6 +103,12 @@ class _PostPageState extends State<PostPage> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey,
+                image: DecorationImage(
+                  image: AssetImage(
+                    'image/IMG_2312.jpg',
+                  ),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

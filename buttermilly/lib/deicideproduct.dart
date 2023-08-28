@@ -21,19 +21,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [],
-
+      // reiji.yasuda.1029@gmail.com
+      // Junji1018
       //home: Screen1(),
-      home: ChatScreen(),
+      //home: ChatScreen(),
       // home: Accountprofiel(),
 
       // home: BottomNavBar(),
-
-
+      home: LoginPage(),
       // home: BottomNavBar(),
       //home: ChatScreen(),
       //home: GroupManu(),
+      // home: ChatScreen(),
       //home: GroupAccountPage(),
-      home: AccountEdit(),
+      
       // home: FollowersPage(),
 
       // home: HomeScreen(),
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
 //           );
 //         },
 //       ),
-      // home: LoginPage(),
+      
     );
   }
 }
