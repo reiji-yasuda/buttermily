@@ -123,7 +123,7 @@ class Accountprofiel extends ConsumerWidget {
                 userData.selfIntro,
                 style: TextStyle(
                   fontSize: 15,
-                  decoration: 
+                  // decoration:
                 ),
               ),
             ),
