@@ -7,14 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:buttermilly/bottombar.dart';
 
-class Accountprofiel extends StatelessWidget {
+class Accountprofiel extends ConsumerWidget {
   Accountprofiel({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final Size size = MediaQuery.of(context).size;
     final textwidth = size.width;
     final textheight = size.height;
+
+    UserData userData = ref.watch(userDataProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -34,16 +36,25 @@ class Accountprofiel extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          //Text(),
           Row(children: [
             Padding(
               padding: EdgeInsets.only(left: 30.0, top: 200.0),
             ),
-            CircleAvatar(
-              radius: 70.0,
-              backgroundColor: Colors.white,
-              backgroundImage: AssetImage('image/Ellipse11.png'),
-            ),
+            Column(children: [
+              Text(
+                userData.username,
+                style: TextStyle(fontSize: 30),
+              ),
+              CircleAvatar(
+                radius: 70.0,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage('image/Ellipse11.png'),
+              ),
+              Text(
+                userData.name,
+                style: TextStyle(fontSize: 25),
+              ),
+            ]),
             SizedBox(
               width: 40.0,
             ),
@@ -54,7 +65,7 @@ class Accountprofiel extends StatelessWidget {
                     style: const TextStyle(color: Colors.black),
                     children: [
                       TextSpan(
-                        text: '120',
+                        text: '2',
                         style: const TextStyle(
                           fontSize: 30.0,
                           height: 1,
@@ -83,7 +94,7 @@ class Accountprofiel extends StatelessWidget {
                     style: const TextStyle(color: Colors.black),
                     children: [
                       TextSpan(
-                        text: '1000',
+                        text: '2',
                         style: const TextStyle(
                           fontSize: 30.0,
                           height: 1,
@@ -104,9 +115,19 @@ class Accountprofiel extends StatelessWidget {
             ),
           ]),
           Padding(
-            padding: EdgeInsets.only(top: 10),
+            padding: EdgeInsets.only(left: 50),
+            child: SizedBox(
+              width: 100,
+              height: 40,
+              child: Text(
+                userData.selfIntro,
+                style: TextStyle(
+                  fontSize: 15,
+                  // decoration:
+                ),
+              ),
+            ),
           ),
-          // Text(),
           Row(
             children: [
               Padding(

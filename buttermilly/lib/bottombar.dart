@@ -34,7 +34,7 @@ class BottomNavBar extends StatelessWidget {
           ),
           PersistentBottomNavBarItem(
             icon: const Icon(Icons.account_circle),
-            activeColorPrimary: Colors.black26,
+            activeColorPrimary: Colors.black,
             inactiveColorPrimary: Colors.grey,
           ),
         ],
