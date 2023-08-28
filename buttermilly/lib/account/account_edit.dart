@@ -6,21 +6,41 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final _Edits = [TextEditingController];
 
-final sendProvider = StateProvider<String>((ref) => );
+final userDataProvider =
+    StateNotifierProvider<UserDataNotifier, UserData>((ref) {
+  return UserDataNotifier();
+});
 
-class AccountEdit extends StatefulWidget {
-  AccountEdit ({Key? key}) :super(key: key)
-  @override
-  _EditProfilePageState creatState() => _EditProfilePageState();
+class UserData {
+  UserData({
+    required this.name,
+    required this.username,
+    required this.selfIntro,
+  });
+
+  String name;
+  String username;
+  String selfIntro;
 }
 
-class _EditProfilePageState extends State<AccountEdit> {
+class UserDataNotifier extends StateNotifier<UserData> {
+  UserDataNotifier() : super(UserData(name: "", username: "", selfIntro: ""));
+
+  void fillData(String name, String username, String selfIntro) {
+    state.name = name;
+    state.username = username;
+    state.selfIntro = selfIntro;
+  }
+}
+
+class AccountEdit extends ConsumerWidget {
   TextEditingController _textEditingname = TextEditingController();
   TextEditingController _textEditingusername = TextEditingController();
   TextEditingController _textEditingselfintro = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // UserData userData = ref.watch(userDataProvider);
     final Size size = MediaQuery.of(context).size;
     final textwidth = size.width;
     final textheight = size.height;
@@ -46,27 +66,26 @@ class _EditProfilePageState extends State<AccountEdit> {
           height: 10.0,
         ),
         SizedBox(
-          width: textwidth/3*2,
+          width: textwidth / 3 * 2,
           child: TextField(
             controller: _textEditingusername,
             decoration: InputDecoration(
               labelText: "@username",
-              icon: Icon(Icons.border_color_outlined),
+              suffixIcon: Icon(Icons.border_color_outlined),
             ),
           ),
         ),
         SizedBox(
-          width: textwidth/3*2,
+          width: textwidth / 3 * 2,
           child: TextField(
             controller: _textEditingname,
             decoration: InputDecoration(
-              labelText: "name",
-              icon: Icon(Icons.border_color_outlined),
-            ),
+                labelText: "name",
+                suffixIcon: Icon(Icons.border_color_outlined)),
           ),
         ),
         SizedBox(
-          width: textwidth/3*2,
+          width: textwidth / 3 * 2,
           child: TextField(
             controller: _textEditingselfintro,
             decoration: InputDecoration(
@@ -74,15 +93,27 @@ class _EditProfilePageState extends State<AccountEdit> {
             ),
           ),
         ),
-        InputBirthdayWidget(), //koko
+        InputBirthdayWidget(),
         Padding(
           padding: EdgeInsets.only(top: 20, left: textwidth / 3.0),
         ),
         SizedBox(
           width: textwidth / 3,
-          height: textheight / 1000,
+          height: textheight / 20,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              ref.read(userDataProvider.notifier).fillData(
+                    _textEditingname.text,
+                    _textEditingusername.text,
+                    _textEditingselfintro.text,
+                  );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Accountprofiel(),
+                ),
+              );
+            },
             child: Text('save'),
           ),
         ),
