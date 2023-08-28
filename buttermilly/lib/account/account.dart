@@ -114,18 +114,34 @@ class Accountprofiel extends ConsumerWidget {
               ],
             ),
           ]),
+          // Padding(
+          //   padding: EdgeInsets.only(left: 50),
+          //   child: SizedBox(
+          //     width: 90,
+          //     height: 10,
+          //     child: Column(children: [
+          //       Text(
+          //         "自己紹介",
+          //         style: TextStyle(
+          //           fontSize: 10,
+          //         ),
+          //       ),
+          //     ]),
+          //   ),
+          // ),
           Padding(
             padding: EdgeInsets.only(left: 50),
             child: SizedBox(
               width: 100,
               height: 40,
-              child: Text(
-                userData.selfIntro,
-                style: TextStyle(
-                  fontSize: 15,
-                  // decoration:
+              child: Column(children: [
+                Text(
+                  userData.selfIntro,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
                 ),
-              ),
+              ]),
             ),
           ),
           Row(
