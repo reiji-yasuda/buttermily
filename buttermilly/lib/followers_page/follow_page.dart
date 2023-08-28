@@ -34,6 +34,8 @@ class _FollowPageState extends State<FollowPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        elevation: 0,
         centerTitle: true,
         backgroundColor: Colors.transparent,
         title: const Text(
