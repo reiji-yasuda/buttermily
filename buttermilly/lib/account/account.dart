@@ -65,7 +65,7 @@ class Accountprofiel extends ConsumerWidget {
                     style: const TextStyle(color: Colors.black),
                     children: [
                       TextSpan(
-                        text: '120',
+                        text: '2',
                         style: const TextStyle(
                           fontSize: 30.0,
                           height: 1,
@@ -94,7 +94,7 @@ class Accountprofiel extends ConsumerWidget {
                     style: const TextStyle(color: Colors.black),
                     children: [
                       TextSpan(
-                        text: '1000',
+                        text: '2',
                         style: const TextStyle(
                           fontSize: 30.0,
                           height: 1,
